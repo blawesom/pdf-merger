@@ -21,12 +21,11 @@ def status():
 def upload():
     uploaded_files = request.files.getlist("file[]")
     filenames = tools.get_files(uploaded_files)
-    if len(filenames) > 0:
+    if filenames:
         merged = tools.merge_files(filenames)
         uploaded = tools.serve_file(merged)
         return uploaded
-    else:
-        return "No files accepted"
+    return "No files accepted"
 
 
 # @app.route('/uploads/<filename>')

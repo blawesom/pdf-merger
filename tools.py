@@ -27,12 +27,11 @@ def config():
 
 def allowed_file(filename):
 
-    if '.' in filename:
-        ext = filename.rsplit('.', 1)[1].lower()
-        authorized = config().get(section='server', option='extensions')
-        return ext == authorized
-    else:
+    if '.' not in filename:
         return False
+    ext = filename.rsplit('.', 1)[1].lower()
+    authorized = config().get(section='server', option='extensions')
+    return ext == authorized
 
 
 def get_files(uploaded_files):
@@ -59,8 +58,9 @@ def merge_files(local_pdfs):
         merged_export.append(fileobj=file_bin)
         os.remove(filepath)
     full_ouput = getpath(name, config().get(section='server', option='upload_folder'))
-    output = open(full_ouput, 'wb')
-    merged_export.write(output)
+    with open(full_ouput, 'wb') as output:
+        merged_export.write(output)
+
     return full_ouput
 
 
