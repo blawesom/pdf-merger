@@ -3,6 +3,7 @@
 # __author__ = 'Benjamin'
 
 
+import os
 import flask
 import json
 import tools
@@ -24,6 +25,7 @@ def upload():
     if filenames:
         merged = tools.merge_files(filenames)
         uploaded = tools.serve_file(merged)
+        os.remove(merged)
         return uploaded
     return "No files accepted"
 

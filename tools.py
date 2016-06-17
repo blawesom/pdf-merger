@@ -66,5 +66,6 @@ def merge_files(local_pdfs):
 
 def serve_file(filepath):
 
-    response = requests.post(url='https://gpldr.in/', files={'file': open(filepath, 'rb')}, data={'once': 'true'})
+    response = requests.post(url='https://gpldr.in/', files={'file': open(filepath, 'rb')},
+                             data={'once': 'true', 'duration': '1w'})
     return response.content
