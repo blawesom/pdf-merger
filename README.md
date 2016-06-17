@@ -3,7 +3,7 @@
 A simple API-based service to freely merge and serve pdf.
 Python 2.7 and 3.5 compatible.
 
-How does it works:
+How does it work:
 - You upload your pdf files through the API
 - The server merge these files
 - The result is uploaded on a secure platform and is hosted for one week, with a download limit of 1
@@ -11,6 +11,6 @@ How does it works:
 - The API returns you the link for the download
 
 
-Kudos to Depado for providing the goploader, find out more there:
+Kudos to Depado for providing the goploader, find out more here:
 - https://github.com/Depado/goploader
 - https://gpldr.in
