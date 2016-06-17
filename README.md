@@ -1,7 +1,7 @@
 **PDF Merger**
 
 A simple API-based service to freely merge and serve pdf.
-Based on python 2.7
+Python 2.7 and 3.5 compatible.
 
 How does it works:
 - You upload your pdf files through the API
