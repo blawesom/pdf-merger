@@ -5,7 +5,6 @@
 
 import os
 import flask
-import json
 import tools
 from flask import request, send_from_directory
 
@@ -15,7 +14,7 @@ app = flask.Flask(__name__)
 
 @app.route('/')
 def status():
-    return json.dumps({'Status': 'Alive'})
+    return flask.jsonify({'Status': 'Alive'})
 
 
 @app.route('/merge', methods=['POST'])
