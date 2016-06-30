@@ -38,10 +38,12 @@ def get_files(uploaded_files):
 
     filename_list = []
     for file in uploaded_files:
-        if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
-            file.save(getpath(filename, config().get(section='server', option='upload_folder'), ))
-            filename_list.append(filename)
+        if not allowed_file(file):
+            break
+        filename = secure_filename(file)
+        with open(getpath(filename, config().get(section='server', option='upload_folder'), ), 'wb') as pdf:
+            pdf.write(uploaded_files[file].read())
+        filename_list.append(filename)
     return filename_list
 
 
